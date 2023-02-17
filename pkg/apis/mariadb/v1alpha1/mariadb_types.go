@@ -31,6 +31,9 @@ type MariaDBSpec struct {
 	// Image name with version
 	Image string `json:"image"`
 
+	// StorageClass for mariaDB pvc, dynamic provision
+	StorageClass string `json:"storageclass"`
+
 	// Database storage Path
 	DataStoragePath string `json:"dataStoragePath"`
 

@@ -18,6 +18,8 @@ spec:
   # Image name with version
   image: "mariadb/server:10.3"
 
+  storageclass: default
+
   # Database storage Path
   dataStoragePath: "/mnt/data" 
 

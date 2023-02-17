@@ -141,6 +141,12 @@ func NewMariaDbPVC(v *v1alpha1.MariaDB, scheme *runtime.Scheme) *corev1.Persiste
 		},
 	}
 
+	if v.Spec.StorageClass != "" {
+		storageClassName = v.Spec.StorageClass
+		pvc.Spec.StorageClassName = &storageClassName
+		pvc.Spec.VolumeName = ""
+	}
+
 	volLog.Info("PVC created for MariaDB ")
 	controllerutil.SetControllerReference(v, pvc, scheme)
 	return pvc

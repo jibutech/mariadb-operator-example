@@ -147,6 +147,10 @@ func (r *ReconcileMariaDB) ensureSecret(request reconcile.Request,
 func (r *ReconcileMariaDB) ensurePV(request reconcile.Request,
 	instance *mariadbv1alpha1.MariaDB,
 ) (*reconcile.Result, error) {
+	if instance.Spec.StorageClass != "" {
+		return nil, nil
+	}
+
 	pvName := resource.GetMariadbVolumeName(instance)
 	_, err := service.FetchPVByName(pvName, r.client)
 

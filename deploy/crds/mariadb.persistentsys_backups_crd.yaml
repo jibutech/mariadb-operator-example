@@ -12,10 +12,7 @@ spec:
   scope: Namespaced
   versions:
   - name: v1alpha1
-    served: true
-    storage: true
-    subresources: {}
-    schema: 
+    schema:
       openAPIV3Schema:
         description: Backup is the Schema for the backups API
         properties:
@@ -41,8 +38,8 @@ spec:
                 description: Backup Size (Ex. 1Gi, 100Mi)
                 type: string
               schedule:
-                description: 'Schedule period for the CronJob. This spec allow you setup
-                  the backup frequency Default: "0 0 * * *" # daily at 00:00'
+                description: 'Schedule period for the CronJob. This spec allow you
+                  setup the backup frequency Default: "0 0 * * *" # daily at 00:00'
                 type: string
             required:
             - backupPath
@@ -52,3 +49,7 @@ spec:
             description: BackupStatus defines the observed state of Backup
             type: object
         type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
