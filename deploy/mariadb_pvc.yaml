@@ -3,10 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: mariadb-pv-claim
 spec:
-  storageClassName: local
+  storageClassName: csi-high-capacity
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
-  volumeName: "mariadb-pv-volume"
