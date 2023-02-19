@@ -131,7 +131,7 @@ func NewMariaDbPVC(v *v1alpha1.MariaDB, scheme *runtime.Scheme) *corev1.Persiste
 		},
 		Spec: corev1.PersistentVolumeClaimSpec{
 			StorageClassName: &storageClassName,
-			AccessModes:      []v1.PersistentVolumeAccessMode{v1.ReadWriteMany},
+			AccessModes:      []v1.PersistentVolumeAccessMode{v1.ReadWriteOnce},
 			Resources: corev1.ResourceRequirements{
 				Requests: corev1.ResourceList{
 					corev1.ResourceName(corev1.ResourceStorage): resource.MustParse(v.Spec.DataStorageSize),
